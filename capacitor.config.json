@@ -1,0 +1,6 @@
+{
+  "appId": "com.imprimeamedida.app",
+  "appName": "Imprime a Medida",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

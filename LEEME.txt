@@ -1,0 +1,26 @@
+IMPRIME A MEDIDA — PROYECTO PARA GENERAR APK ANDROID
+
+Este paquete contiene la aplicación HTML original dentro de www/index.html y la configuración inicial de Capacitor para empaquetarla como aplicación Android.
+
+IMPORTANTE:
+- Este ZIP es el proyecto fuente, no una APK ya compilada.
+- La generación de la APK requiere Android SDK/Gradle. Se incluye un flujo de GitHub Actions para compilarla en la nube.
+- Antes de distribuir la aplicación, prueba especialmente la selección de imágenes, descarga/guardado del PDF y la impresión en tu teléfono. Las descargas creadas mediante Blob en el navegador pueden necesitar integración nativa adicional en algunas versiones de Android WebView.
+
+MÉTODO DE COMPILACIÓN EN LA NUBE:
+1. Descomprime este ZIP.
+2. Crea un repositorio en GitHub y sube todos los archivos y carpetas del proyecto (incluida la carpeta oculta .github).
+3. En GitHub, abre la pestaña Actions.
+4. Selecciona “Build Android APK” y pulsa “Run workflow”. Si no aparece, comprueba que subiste .github/workflows/build-apk.yml a la rama main.
+5. Cuando termine correctamente, abre la ejecución y descarga el artefacto “imprime-a-medida-apk”.
+6. Descomprime el artefacto y encontrarás app-debug.apk. Pásalo al teléfono e instálalo. Android puede pedir permiso para instalar aplicaciones desde esa fuente.
+
+COMPILACIÓN LOCAL EN WINDOWS:
+Requiere Node.js, JDK 21, Android Studio y Android SDK instalados. En la carpeta del proyecto ejecuta:
+  npm install
+  npx cap add android
+  npx cap sync android
+  npx cap open android
+Luego compila desde Android Studio o ejecuta dentro de la carpeta android:
+  gradlew.bat assembleDebug
+La APK de prueba normalmente queda en android\app\build\outputs\apk\debug\app-debug.apk.
